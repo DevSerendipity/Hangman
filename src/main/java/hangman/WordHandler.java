@@ -8,6 +8,17 @@ import java.util.Map;
 
 public class WordHandler {
 
+    private final String word = getRandomWordFromFile();
+    private final StringBuilder maskedSentence = new StringBuilder("-".repeat(word.length()));
+
+    public String getWord() {
+        return word;
+    }
+
+    public StringBuilder getMaskedSentence() {
+        return maskedSentence;
+    }
+
     String getRandomWordFromFile() {
         Map<Integer, String> words = new HashMap<>();
         try {

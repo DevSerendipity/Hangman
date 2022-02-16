@@ -2,8 +2,6 @@ package hangman;
 
 public class CharacterInput extends WordHandler {
 
-    private final String word = getRandomWordFromFile();
-    private final StringBuilder maskedSentence = new StringBuilder("-".repeat(word.length()));
     private final StringBuilder incorrectCharsEntered = new StringBuilder();
     private final StringBuilder charsEntered = new StringBuilder();
 
@@ -13,14 +11,6 @@ public class CharacterInput extends WordHandler {
 
     public StringBuilder getCharsEntered() {
         return charsEntered;
-    }
-
-    public String getWord() {
-        return word;
-    }
-
-    public StringBuilder getMaskedSentence() {
-        return maskedSentence;
     }
 
     void unMaskWord() {

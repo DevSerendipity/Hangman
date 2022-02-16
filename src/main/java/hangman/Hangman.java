@@ -8,7 +8,6 @@ public class Hangman extends CharacterInput {
 
     Hangman() {
         System.out.println(getMaskedSentence());
-        System.out.println(getWord());
     }
 
     public void hangmanGame() {
