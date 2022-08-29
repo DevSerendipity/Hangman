@@ -10,20 +10,22 @@ public class Hangman extends CharacterInput {
         System.out.println(getMaskedSentence());
     }
 
-    public void hangmanGame() {
-        int MISTAKE_NUMBER = 7;
-        while (getIncorrectCharsEntered().length() != MISTAKE_NUMBER) {
+    public void game() {
+        int NUMBER_OF_MISTAKES = 7;
+        while( getIncorrectCharsEntered().length() != NUMBER_OF_MISTAKES ) {
             String human = input.next();
-            getCharsEntered().append(human);
+            getCharactersEntered().append(human);
             characterConditions();
-            if (hasWon(human)) break;
+            if ( hasWon(human) ) {
+                break;
+            }
             System.out.println("So far " + getMaskedSentence());
         }
         System.out.println("The word was " + getWord());
     }
 
     private boolean hasWon(String human) {
-        if (getMaskedSentence().toString().equals(getWord()) || human.equals(getWord())) {
+        if ( getMaskedSentence().toString().equals(getWord()) || human.equals(getWord()) ) {
             System.out.println("Congratulations you won!!");
             return true;
         }

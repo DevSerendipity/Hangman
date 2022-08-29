@@ -3,31 +3,31 @@ package hangman;
 public class CharacterInput extends WordHandler {
 
     private final StringBuilder incorrectCharsEntered = new StringBuilder();
-    private final StringBuilder charsEntered = new StringBuilder();
+    private final StringBuilder charactersEntered = new StringBuilder();
 
     public StringBuilder getIncorrectCharsEntered() {
         return incorrectCharsEntered;
     }
 
-    public StringBuilder getCharsEntered() {
-        return charsEntered;
+    public StringBuilder getCharactersEntered() {
+        return charactersEntered;
     }
 
     void unMaskWord() {
-        for (int i = 0; i < getWord().length(); i++) {
-            if (isLetterMatching(i)) {
-                getMaskedSentence().setCharAt(i, getCharsEntered().charAt(getCharsEntered().length() - 1));
+        for ( int i = 0; i < getWord().length(); i++ ) {
+            if ( isLetterMatching(i) ) {
+                getMaskedSentence().setCharAt(i, getCharactersEntered().charAt(getCharactersEntered().length() - 1));
             }
         }
     }
 
     void characterConditions() {
-        if (!hasCorrectCharactersEntered()) {
-            addIncorrectChar(incorrectCharsEntered, charsEntered);
+        if ( !hasCorrectCharactersEntered() ) {
+            addIncorrectChar(incorrectCharsEntered, charactersEntered);
         } else {
             unMaskWord();
         }
-        removeCorrectChar(charsEntered);
+        removeCorrectChar(charactersEntered);
         getIncorrectChar();
     }
 
@@ -44,12 +44,12 @@ public class CharacterInput extends WordHandler {
     }
 
     boolean isLetterMatching(int i) {
-        return getWord().charAt(i) == charsEntered.charAt(charsEntered.length() - 1);
+        return getWord().charAt(i) == charactersEntered.charAt(charactersEntered.length() - 1);
     }
 
     private boolean hasCorrectCharactersEntered() {
-        for (int i = 0; i < getWord().length(); i++) {
-            if (charsEntered.indexOf(String.valueOf(getWord().charAt(i))) != -1) {
+        for ( int i = 0; i < getWord().length(); i++ ) {
+            if ( charactersEntered.indexOf(String.valueOf(getWord().charAt(i))) != -1 ) {
                 return true;
             }
         }

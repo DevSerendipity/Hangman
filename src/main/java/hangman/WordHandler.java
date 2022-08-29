@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class WordHandler {
 
-    private final String word = getRandomWordFromFile();
+    private final String word = getRandomWord();
     private final StringBuilder maskedSentence = new StringBuilder("-".repeat(word.length()));
 
     public String getWord() {
@@ -19,21 +19,21 @@ public class WordHandler {
         return maskedSentence;
     }
 
-    String getRandomWordFromFile() {
+    String getRandomWord() {
         Map<Integer, String> words = new HashMap<>();
         try {
             BufferedReader bufferedReader = getBufferedReader();
-            addWordsToMap(words, bufferedReader);
-        } catch (IOException e) {
+            getWordsFromFile(words, bufferedReader);
+        } catch ( IOException e ) {
             throw new FileSystemNotFoundException("The file could not be found, check the file or adjust the location");
         }
         return words.get((int) (Math.random() * words.size()));
     }
 
-    private void addWordsToMap(Map<Integer, String> words, BufferedReader bufferedReader) throws IOException {
+    private void getWordsFromFile(Map<Integer, String> words, BufferedReader bufferedReader) throws IOException {
         String line;
         int MAX_LINE = 100;
-        for (int i = 0; i < MAX_LINE; i++) {
+        for ( int i = 0; i < MAX_LINE; i++ ) {
             line = bufferedReader.readLine().toLowerCase(Locale.ROOT);
             words.put(i, line);
         }
