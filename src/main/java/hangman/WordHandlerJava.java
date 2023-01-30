@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class WordHandler {
+public class WordHandlerJava {
 
     private final String word = getRandomWord();
     private final StringBuilder maskedSentence = new StringBuilder("-".repeat(word.length()));
@@ -40,7 +40,7 @@ public class WordHandler {
     }
 
     private BufferedReader getBufferedReader() throws FileNotFoundException {
-        File file = new File("src/main/resources/words.txt");
+        File file = new File("src/hangman.main/resources/words.txt");
         FileReader fileReader = new FileReader(file);
         return new BufferedReader(fileReader);
     }

@@ -1,6 +1,6 @@
 package hangman;
 
-public class CharacterInput extends WordHandler {
+public class CharacterInputJava extends WordHandlerJava {
 
     private final StringBuilder incorrectCharsEntered = new StringBuilder();
     private final StringBuilder charactersEntered = new StringBuilder();

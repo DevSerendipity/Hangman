@@ -2,11 +2,11 @@ package hangman;
 
 import java.util.Scanner;
 
-public class Hangman extends CharacterInput {
+public class HangmanJava extends CharacterInputJava {
 
     private final static Scanner input = new Scanner(System.in);
 
-    Hangman() {
+    HangmanJava() {
         System.out.println(getMaskedSentence());
     }
 
